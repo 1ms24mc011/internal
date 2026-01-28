@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    triggers {
-        cron('* * * * *')
-    }
     environment {
         DOCKERHUB_CRED = credentials('dockerhub')
         IMAGE_NAME = "aravind2003/internal2"
