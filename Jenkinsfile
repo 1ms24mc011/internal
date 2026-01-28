@@ -4,8 +4,8 @@ pipeline {
         cron('* * * * *')
     }
     environment {
-        DOCKERHUB_CRED = credentials('docker')
-        IMAGE_NAME = "aravind80555/internal"
+        DOCKERHUB_CRED = credentials('dockerhub')
+        IMAGE_NAME = "aravind2003/internal2"
     }
     stages {
         stage('checkout') {
