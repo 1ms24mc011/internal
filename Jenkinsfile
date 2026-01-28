@@ -1,12 +1,15 @@
 pipeline {
     agent any
+    triggers {
+        cron('* * * * *')
+    }
     environment {
         DOCKERHUB_CRED = credentials('dockerhub')
-        IMAGE_NAME = "<dockerhub_username>/my_node_app"
+        IMAGE_NAME = "aravind80555/internal"
     }
     stages {
         stage('checkout') {
-            steps { git url: '<github_repo_ssh_url>', branch: 'main' }
+            steps { git url: 'https://github.com/1ms24mc011/internal', branch: 'master' }
         }
         stage('Build Docker Image') {
             steps {
