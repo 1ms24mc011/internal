@@ -4,7 +4,7 @@ pipeline {
         cron('* * * * *')
     }
     environment {
-        DOCKERHUB_CRED = credentials('dockerhub')
+        DOCKERHUB_CRED = credentials('docker')
         IMAGE_NAME = "aravind80555/internal"
     }
     stages {
@@ -19,7 +19,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
+                    docker.withRegistry('https://index.docker.io/v1/', 'docker') {
                         dockerImage.push()
                     }
                 }
